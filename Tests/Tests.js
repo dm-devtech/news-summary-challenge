@@ -1,11 +1,20 @@
 (function testsTitleIsCorrect() {
   var htmltitle = document.getElementById("title").innerHTML
-  assert.isTrue(htmltitle = "News App")
+  assert.isTrue(htmltitle === "News App")
+})(this);
+
+(function testsBodyTitleIsCorrect() {
+  var htmlbodytitle = document.getElementById("titlebody").innerHTML
+  assert.isTrue(htmlbodytitle === "News App")
 })(this);
 
 (function testsPushesDataFromModelToHTML() {
-  newmodel = new Model()
-  var n = newmodel.fetchdata("https://reqres.in/api/users")
-  // newmodel.pushData()
-  assert.isTrue("" === "<ul><li><div>George</div></li><li><div>Janet</div></li><li><div>Emma</div></li><li><div>Eve</div></li><li><div>Charles</div></li><li><div>Tracey</div></li></ul>")
+  let newmodel = new Model()
+  newmodel.fetchData()
+  assert.isTrue(document.getElementById("app").innerHTML === "<ul><li><div>George</div></li></ul>")
+})(this);
+
+(function testsItemHyperlink() {
+  let newmodel = new Model()
+
 })(this);

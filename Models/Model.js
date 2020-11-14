@@ -1,6 +1,6 @@
 class Model {
 
-  fetchdata(url) {
+  fetchData(url = "https://reqres.in/api/users") {
     var url = url
     const proxyurl = "https://api.allorigins.win/raw?url="
     fetch(proxyurl+url)
@@ -14,17 +14,12 @@ class Model {
         let html = []
         data.data.forEach(item => {
           html.push(`<li><div>${item.first_name}</div></li>`)
-        })
-        var finalhtmlformatting = `<ul>${html.join("")}</ul>`
-        return finalhtmlformatting
+        });
+        document.getElementById("app").innerHTML = `<ul>${html[0]}</ul>`
       })
         .catch(error => {
           console.log(error);
       });
   }
-
-
-
-
 
 }
